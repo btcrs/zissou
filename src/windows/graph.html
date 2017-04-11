@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Datalogger</title>
+
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../../node_modules/photon/dist/css/photon.css">
+
+    <script>
+        delete module.exports
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../node_modules/chart.js/dist/Chart.js"></script>
+    <script src="../graph.js"></script>
+
+</head>
+
+<body>
+    <div id='chart-container' class=container-fluid>
+        <div class="btn-group pull-right">
+            <button id="dot" class="btn btn-mini btn-default">
+              <span class="icon icon-dot"></span>
+            </button>
+            <button id="dotdot" class="btn btn-mini btn-default">
+              <span class="icon icon-dot-2"></span>
+            </button>
+            <button id="dotdotdot" class="btn btn-mini btn-default">
+              <span class="icon icon-dot-3"></span>
+            </button>
+            <button id="bigdot" class="btn btn-mini btn-default">
+              <span class="icon icon-record"></span>
+            </button>
+        </div>
+        <canvas class="chart"></canvas>
+    </div>
+</body>
+
+</html>

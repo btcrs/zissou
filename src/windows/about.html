@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+            cursor: default;
+        }
+
+        body {
+            font-family: "Arial","Helvetica", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4;
+            background-color: #ECECEC;
+            padding: 10px 20px;
+            color: #525252;
+            margin: 0;
+        }
+
+        h2 {
+            margin: 0;
+            margin-top: 5px;
+        }
+
+        .info {
+            padding: 3px 0;
+        }
+
+        a {
+            color: inherit!important;
+            text-decoration: none;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .copy {
+            color: #AAA;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        var pkg = require("../../package.json");
+        var ip = require("ip");
+        var date = new Date();
+        var version = pkg.version;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("title").innerHTML = "Loggers";
+            document.getElementById("desc").innerHTML = "Real-time temperature data acuisition";
+            document.getElementById("ip").innerHTML = ip.address();
+            document.getElementById("version").innerHTML = version;
+            document.getElementById("year").innerHTML = date.getFullYear();
+        });
+    </script>
+</head>
+<body>
+    <div align="center" style="margin-top:2px;">
+        <h2 id="title">{title}</h2>
+        <img src="../../resources/Icon.png" height="60px" width="60px">
+        <div class="info"><b id="ip">{address}</b></div>
+        <div class="info"><b id="desc">{description}</b></div>
+        <div class="vers">Version <span id="version">{version}</span></div>
+        <div class="copy">&copy; <span id="year"></span> Ben Carothers</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Map</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<link rel="stylesheet" href="../../node_modules/leaflet/dist/leaflet.css" />
+<style>
+        * {
+            -webkit-touch-callout:none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            user-select: none;
+        }
+        body {
+            font-family: "Arial", "Helvetica", sans-serif;
+            margin: 0;
+        }
+        #map {
+            overflow: hidden;
+            position: absolute;
+            z-index: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #DDD;
+        }
+        .alert {
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: inline-block;
+            background-color: #74565c;
+            color: white;
+            padding: 5px 25px 5px 10px;
+            cursor: default;
+            line-height: 20px;
+        }
+        .alert table{
+            margin-right: 20px;
+            margin-left: auto;
+            width: auto;
+        }
+        .alert p {color:#333333;  margin: 0; }
+        .alert b { color:#333333; display: block; margin-bottom: 3px; }
+        td { margin: 0; }
+</style>
+</head>
+  <body>
+    <div class="alert">
+      <table>
+        <tr>
+          <td style="width:50px">
+            </td>
+            <td>
+            <b><div id="location">Sarasota, FL<div></b>
+            <div align="right">
+                <b><div id="temperature">74 Degrees<div></b>
+            </div>
+            </td>
+          </tr>
+        </table>
+    </div>
+
+    <div id="map"></div>
+    <script src="../map.js"></script>
+  </body>
+</html>

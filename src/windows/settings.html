@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: "Arial", "Helvetica", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.4;
+            background-color: #FFF;
+            padding: 10px 20px;
+            color: #525252;
+            margin: 0;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 28px;
+            margin: 5px 0 20px;
+        }
+
+        h4 {
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        hr {
+            margin: -5px 0 0;
+            border: none;
+            border-top: 1px solid #DDD;
+        }
+
+        blockquote {
+            margin-left: 10px;
+        }
+
+        select {
+            font-family: inherit;
+            width: 176px;
+            height: 30px;
+            font-size: 14px;
+            line-height: 1.4;
+            padding: 5px 14px 4px;
+            margin-top: 5px;
+            color: #525252;
+            border: 1px solid #ededed;
+            overflow: hidden;
+            background-color: white;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        select:focus {
+            outline: none;
+        }
+
+        button {
+            position: absolute;
+            z-index: 20;
+            top: 10px;
+            right: 20px;
+            font: inherit;
+            padding: 5px 14px 4px;
+            margin: 10px 0 10px;
+            color: #FFF;
+            border: 1px solid #4cae4c;
+            background: #5CB85C;
+            text-align: center;
+            cursor: pointer;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        button:hover,button:active {
+            border: 1px solid #4cae4c;
+            background: #63bb63;
+        }
+    </style>
+    <script>
+        window.onbeforeunload = save;
+        var fs = require("fs");
+        var settings = require("../settings.json");
+        var settingsFile = {"first_run": false, "night_mode": true, "dev_mode": true};
+
+        function save() {
+            try {
+                var form = document.getElementById("settings");
+                var settings = {};
+                settings["first_run"] = false;
+                settings["night_mode"] = form["night_mode"].checked;
+                settings["dev_mode"] = form["dev_mode"].checked;
+                fs.writeFile("../settings.json", JSON.stringify(settings));
+            } catch(err) {
+                alert("There was an error saving your settings: " + err);
+                console.error("Error: " + err);
+            } finally {
+                alert(locale[lang].setup.restart);
+                console.log("Success: Settings Saved.")
+                window.close();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if (settings.night_mode) document.getElementById("night_mode").checked = true;
+            if (settings.dev_mode) document.getElementById("dev_mode").checked = true;
+            document.getElementById("title").innerHTML = "Loggers";
+            document.getElementById("night_title").innerHTML = "Night Mode";
+            document.getElementById("dev_title").innerHTML = "Developer Tools";
+        });
+    </script>
+</head>
+<body>
+    <h2 id="title">Settings</h2>
+    <hr>
+    <form action="javascript:save()" id="settings">
+        <h4 id="night_title">{night_title}</h4>
+        <label><input type="checkbox" name="night_mode" id="night_mode"> <span id="enable1">Enable</span></label>
+        <br>
+        <h4 id="dev_title">{dev_title}</h4>
+        <label><input type="checkbox" name="dev_mode" id="dev_mode"> <span id="enable2">Enable</span></label>
+        <button value="submit" id="save">Save</button>
+    </form>
+</body>
+</html>

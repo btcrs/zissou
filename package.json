@@ -1,0 +1,24 @@
+{
+  "name": "Zissou",
+  "version": "1.0.0",
+  "description": "Simple Visualizer",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "electron ./src/app.js"
+  },
+  "devDependencies": {
+    "electron": "^1.4.12",
+    "esri-leaflet": "^1.0.0-rc.7",
+    "leaflet": "^0.7.3"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "chart.js": "^2.5.0",
+    "chartjs": "^0.3.24",
+    "esri-leaflet-vector": "^1.0.6",
+    "ip": "^1.1.5",
+    "jquery": "^3.2.1",
+    "photon": "github:connors/photon",
+    "titlebar": "^1.4.0"
+  }
+}
